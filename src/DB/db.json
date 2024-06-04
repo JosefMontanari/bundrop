@@ -1,0 +1,45 @@
+{
+  "hamburgers": [
+    {
+      "id": 1,
+      "name": "Bun Drop Bomb",
+      "description": "Our signature burger packed with bacon and cheese",
+      "image": "/burger-1.png",
+      "price": 14
+    },
+    {
+      "id": 2,
+      "name": "Black BBQ Bacon ",
+      "description": "Gluten free bread served with a chicken patty and some delicious bacon",
+      "image": "/burger-2.png",
+      "price": 16
+    }
+  ],
+  "drinks": [
+    {
+      "id": 3,
+      "name": "Norrlands guld",
+      "description": "Craft beer from the north, absolutely amazing!",
+      "image": "/beer.jpg",
+      "price": 9
+    }
+  ],
+  "sides": [
+    {
+      "id": 4,
+      "name": "Home Made Fries",
+      "description": "Home made fries prepared every morning. Crispy and delicious!",
+      "image": "/fries-1.png",
+      "price": 4
+    }
+  ],
+  "wings": [
+    {
+      "id": 5,
+      "name": "Hot Wings",
+      "description": "Hot wings made with our own home made glaze, prepared fresh every morning.",
+      "image": "/wings-1.jpg",
+      "price": 7
+    }
+  ]
+}

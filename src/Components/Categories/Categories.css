@@ -1,0 +1,37 @@
+.categories-container {
+  display: flex;
+  justify-content: space-around;
+  background-color: #6f6f6f;
+  overflow-x: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+  width: 100%;
+}
+
+.categories-container img {
+  width: max(330px);
+  min-width: 80px;
+  height: max(300px);
+  min-height: 50px;
+}
+
+.category-item {
+  transition: 1s;
+}
+
+.categories-container img {
+  cursor: pointer;
+}
+
+.category-item:hover {
+  opacity: 85%;
+  box-shadow: 15px 15px 15px 15px;
+}
+
+.active-category {
+  opacity: 1;
+  box-shadow: 5px 5px 5px 5px;
+  border: 1px solid whitesmoke;
+  transition: 0.5s;
+}

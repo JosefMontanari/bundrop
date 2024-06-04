@@ -1,0 +1,81 @@
+.checkout {
+  background-color: rgba(250, 233, 207);
+  padding-top: 60px;
+  padding-left: 60px;
+  padding-right: 60px;
+  min-height: 60vh;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+.user-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 350px;
+}
+.user-info input {
+  border: none;
+  height: 3vh;
+}
+.user-info textarea {
+  resize: none;
+  border: none;
+  height: 4vh;
+}
+.payment-methods {
+  width: 20%;
+  align-self: flex-end;
+  margin-bottom: 15vh;
+}
+
+.payment-methods img {
+  margin-right: 15px;
+}
+.user-name-and-address {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+}
+.zip-code-city {
+  display: flex;
+  justify-content: space-between;
+}
+.cvc-expiration {
+  display: flex;
+  justify-content: space-between;
+}
+.payment-info-card {
+  display: grid;
+  gap: 15px;
+}
+.payment-info label {
+  font-size: 12px;
+}
+.checkout-content-right {
+  width: 60%;
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: space-around;
+}
+.cart-details {
+  width: 50%;
+  align-self: flex-end;
+}
+.confirm {
+  width: 50%;
+  align-self: flex-end;
+}
+.confirm button {
+  border: none;
+  background-color: black;
+  color: white;
+  font-weight: 800;
+  font-size: 2vh;
+  min-width: 12vw;
+  max-width: 18vw;
+  padding: 20px;
+  border-radius: 30px;
+}
