@@ -6,32 +6,42 @@ function FoodItem({ id, name, price, description, image }) {
     useLocalStorage();
   const [cartItems, setCartItems] = useState([]);
   const [favorites, setFavorites] = useState([]);
+  const [loggedInUser, setLoggedInUser] = useState({});
 
   function getFavorites() {
-    const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
-    fetch(`http://localhost:3001/users/${loggedInUser.id}`)
-      .then((res) => res.json())
-      .then((data) => setFavorites(data.favorites))
-      .catch((err) => console.error("Failed to fetch favorites:", err));
+    if (Object.keys(loggedInUser).length > 0) {
+      const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+      fetch(`http://localhost:3001/users/${loggedInUser.id}`)
+        .then((res) => res.json())
+        .then((data) => setFavorites(data.favorites))
+        .catch((err) => console.error("Failed to fetch favorites:", err));
+    }
   }
 
   function updateFavorites(newFavorites) {
-    const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
-
+    const updatedUser = { ...loggedInUser };
+    updatedUser.favorites = [...updatedUser.favorites, newFavorites];
+    console.log(updatedUser);
+    setLoggedInUser(updatedUser);
     const postOptions = {
-      method: "PATCH",
+      method: "PUT",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ favorites: newFavorites }),
+      body: JSON.stringify({
+        username: updatedUser.name,
+        password: updatedUser.password,
+        favorites: updatedUser.favorites,
+      }),
     };
 
-    return fetch(`http://localhost:3001/users/${loggedInUser.id}`, postOptions)
-      .then((res) => res.json())
-      .then(() => setFavorites(newFavorites))
-      .catch((err) => console.error("Failed to update favorites:", err));
+    return fetch(`http://localhost:3001/users/${loggedInUser.id}`, postOptions);
+    // .then((res) => res.json())
+    // .then((_) => setFavorites(newFavorites))
+    // .catch((err) => console.error("Failed to update favorites:", err));
   }
 
   async function addToFavorites(foodItem) {
     const updatedFavorites = [...favorites, foodItem];
+    setFavorites(updatedFavorites);
     await updateFavorites(updatedFavorites);
   }
 
@@ -52,6 +62,8 @@ function FoodItem({ id, name, price, description, image }) {
   }
 
   useEffect(() => {
+    const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+    setLoggedInUser(loggedInUser);
     setCartItems(getCart());
     getFavorites();
   }, []);
