@@ -4,7 +4,15 @@
       "id": "45ff",
       "username": "user",
       "password": "password",
-      "favorites": []
+      "favorites": [
+        {
+          "id": "3",
+          "name": "Norrlands guld",
+          "description": "Craft beer from the north, absolutely amazing!",
+          "price": 9,
+          "image": "/beer.jpg"
+        }
+      ]
     },
     {
       "id": "7b49",
