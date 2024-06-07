@@ -18,10 +18,12 @@ function LoginPopUp({ setShowLogin, setIsLoggedIn }) {
   function handleLogin() {
     const logInUser = { username: inputUsername, password: inputPassword };
     setUser(logInUser);
+    window.location.reload();
   }
   function handleRegister() {
     const registerUser = { username: inputUsername, password: inputPassword };
     setUser(registerUser);
+    window.location.reload();
   }
 
   function createUser() {

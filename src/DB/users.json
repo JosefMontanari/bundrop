@@ -4,7 +4,14 @@
       "id": "45ff",
       "username": "user",
       "password": "password",
-      "favorites": []
+      "favorites": [
+        {
+          "id": "1",
+          "name": "Bun Drop Bomb",
+          "image": "/burger-1.png",
+          "price": 14
+        }
+      ]
     },
     {
       "id": "7b49",

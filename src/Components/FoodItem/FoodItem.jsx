@@ -1,7 +1,16 @@
 import React, { useEffect, useState } from "react";
 import "./FoodItem.css";
 import useLocalStorage from "../../hooks/useLocalStorage";
-function FoodItem({ id, name, price, description, image }) {
+function FoodItem({
+  id,
+  name,
+  price,
+  description,
+  image,
+  isFavorite,
+  addToFavorites,
+  removeFromFavorites,
+}) {
   const { isUserLoggedIn, getCart, addToCart, removeFromCart } =
     useLocalStorage();
   const [cartItems, setCartItems] = useState([]);
@@ -11,6 +20,7 @@ function FoodItem({ id, name, price, description, image }) {
     const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
     setLoggedInUser(loggedInUser);
     setCartItems(getCart());
+    console.log(isFavorite);
   }, []);
 
   function handleRemoveFromCart() {
@@ -28,8 +38,8 @@ function FoodItem({ id, name, price, description, image }) {
       <div className="food-item-image">
         <img src={image} alt="" />
 
-        {/* {isUserLoggedIn() ? (
-          favorites.some((f) => f.id === id) ? (
+        {isUserLoggedIn() ? (
+          isFavorite ? (
             <img
               className="heart"
               src="/heart-fill.svg"
@@ -41,12 +51,12 @@ function FoodItem({ id, name, price, description, image }) {
               className="heart"
               src="/heart.svg"
               alt=""
-              onClick={() => addToFavorites({ id, name, price, image })}
+              onClick={() => addToFavorites({ id, name, image, price })}
             />
           )
         ) : (
           <></>
-        )} */}
+        )}
 
         {!cartItems.find((c) => c.id === id) ? (
           <img
