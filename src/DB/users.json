@@ -1,19 +1,10 @@
 {
   "users": [
     {
+      "id": "45ff",
+      "username": "user",
       "password": "password",
-      "favorites": [
-        [
-          {
-            "id": "2",
-            "name": "Black BBQ Bacon ",
-            "description": "Gluten free bread served with a chicken patty and some delicious bacon",
-            "price": 16,
-            "image": "/burger-2.png"
-          }
-        ]
-      ],
-      "id": "45ff"
+      "favorites": []
     },
     {
       "id": "7b49",

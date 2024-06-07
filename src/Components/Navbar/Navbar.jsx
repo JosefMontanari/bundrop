@@ -14,7 +14,13 @@ function Navbar({ setIsLoggedIn, setShowLogin, isLoggedIn }) {
   return (
     <div className="navbar">
       <div className="navbar-content-left">
-        <img src="/logo-black.png" alt="Burger bun" />
+        <Link
+          to="/"
+          onClick={() => setMenu("home")}
+          className={menu === "home" ? "active" : ""}
+        >
+          <img src="/logo-black.png" alt="Burger bun" />
+        </Link>
       </div>
       <div className="navbar-content-center">
         <ul className="navbar-menu">

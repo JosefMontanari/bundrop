@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./Cart.css";
 import useLocalStorage from "../../hooks/useLocalStorage";
+import { Link } from "react-router-dom";
 function Cart() {
   const { getCartTotal, getCart, removeFromCart } = useLocalStorage();
   const [cartItems, setCartItems] = useState([]);
@@ -68,7 +69,13 @@ function Cart() {
         </div>
 
         <div className="checkout-container">
-          <button>Proceed to checkout</button>
+          {getCartTotal() > 0 ? (
+            <Link to="/checkout">
+              <button>Proceed to checkout</button>
+            </Link>
+          ) : (
+            <></>
+          )}
         </div>
       </div>
     </div>

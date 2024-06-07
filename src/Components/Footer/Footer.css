@@ -46,3 +46,25 @@
   display: flex;
   gap: 30px;
 }
+
+@media (max-width: 800px) {
+  .footer {
+    padding-top: 10px;
+  }
+  .footer-content-center {
+    visibility: collapse;
+    margin: 0;
+    padding: 0;
+    height: 55px;
+  }
+  .footer-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+  }
+
+  .footer-content-right {
+    display: flex;
+    flex-direction: row;
+  }
+}
