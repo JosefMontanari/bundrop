@@ -3,7 +3,7 @@ import "./Navbar.css";
 import useLocalStorage from "../../hooks/useLocalStorage";
 import { Link } from "react-router-dom";
 
-function Navbar({ setIsLoggedIn, setShowLogin, isLoggedIn }) {
+function Navbar({ setIsLoggedIn, setShowLogin, isLoggedIn, setShowFavorites }) {
   const [menu, setMenu] = useState("home");
 
   function handleLogout() {
@@ -55,6 +55,16 @@ function Navbar({ setIsLoggedIn, setShowLogin, isLoggedIn }) {
         </ul>
       </div>
       <div className="navbar-content-right">
+        {isLoggedIn ? (
+          <div className="navbar-favorite-container">
+            <a onClick={() => setShowFavorites(true)}>
+              <img src="/heart-fill.svg" alt="" />
+            </a>
+          </div>
+        ) : (
+          <></>
+        )}
+
         <div className="navbar-cart-container">
           <Link to="/cart">
             <img className="cart-img" src="/cart-fill.svg" alt="Cart" />

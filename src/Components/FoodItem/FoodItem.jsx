@@ -51,7 +51,9 @@ function FoodItem({
               className="heart"
               src="/heart.svg"
               alt=""
-              onClick={() => addToFavorites({ id, name, image, price })}
+              onClick={() =>
+                addToFavorites({ id, name, description, image, price })
+              }
             />
           )
         ) : (

@@ -7,10 +7,13 @@ import Footer from "./Components/Footer/Footer";
 import LoginPopUp from "./Components/LoginPopup/LoginPopup";
 import useLocalStorage from "./hooks/useLocalStorage";
 import Checkout from "./Pages/Checkout/Checkout";
+import FavoritesPopup from "./Components/FavoritesPopup/FavoritesPopup";
+
 function App() {
   const [showLogin, setShowLogin] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const { isUserLoggedIn } = useLocalStorage();
+  const [showFavorites, setShowFavorites] = useState(false);
   useEffect(() => {
     if (isUserLoggedIn()) {
       setIsLoggedIn(true);
@@ -23,10 +26,16 @@ function App() {
       ) : (
         <></>
       )}
+      {showFavorites ? (
+        <FavoritesPopup setShowFavorites={setShowFavorites}></FavoritesPopup>
+      ) : (
+        <></>
+      )}
       <Navbar
         setIsLoggedIn={setIsLoggedIn}
         isLoggedIn={isLoggedIn}
         setShowLogin={setShowLogin}
+        setShowFavorites={setShowFavorites}
       ></Navbar>
       <Routes>
         <Route path="/" element={<HomePage />}></Route>

@@ -9,7 +9,6 @@ function Menu({ category }) {
   const [userFavorites, setUserFavorites] = useState([]);
   const [loggedInUser, setLoggedInUser] = useState(null);
 
-  // Funktion för att uppdatera användarens information i localStorage och server
   async function updateUserFavorites(favoritesList) {
     const updatedUser = { ...loggedInUser, favorites: favoritesList };
 
@@ -40,12 +39,12 @@ function Menu({ category }) {
     setUserFavorites(newFoodList);
   }
 
-  async function getUserFavorites() {
-    if (loggedInUser) {
-      return loggedInUser.favorites || [];
-    }
-    return [];
-  }
+  // async function getUserFavorites() {
+  //   if (loggedInUser) {
+  //     return loggedInUser.favorites || [];
+  //   }
+  //   return [];
+  // }
 
   async function allCategoriesSelected() {
     let allFoodData = [];
@@ -80,6 +79,7 @@ function Menu({ category }) {
     }
   }, [category]);
 
+  // Uppdatera sidan dynamiskt varje gång favorites ändras
   useEffect(() => {
     if (loggedInUser) {
       updateUserFavorites(userFavorites);

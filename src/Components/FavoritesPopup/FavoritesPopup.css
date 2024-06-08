@@ -1,0 +1,75 @@
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap");
+
+.favorites-window {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background-color: #00000090;
+  display: grid;
+  font-family: Outfit;
+}
+.favorites-container {
+  place-self: center;
+  width: max(30vw, 400px);
+  color: #808080;
+  background-color: whitesmoke;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  padding: 25px 30px;
+  border-radius: 8px;
+  font-size: 14px;
+  animation: fadeIn 0.5s;
+}
+.favorites-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.favorites-content ul {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.favorites-header a {
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.favorites-content img {
+  width: 60px;
+  height: 50px;
+  margin-bottom: 3px;
+}
+.favorite-item-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.favorites-content li {
+  list-style: none;
+}
+.add-favorites {
+  animation: fadeIn 1s;
+  transition: 1s;
+}
+.add-favorites img {
+  height: 45px;
+  width: 45px;
+  cursor: pointer;
+}
+.food-item-counter-favorites {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+  justify-content: space-between;
+  transition: 1s;
+  animation: fadeIn 1s;
+}
+
+.food-item-counter-favorites img {
+  height: 35px;
+  width: 35px;
+  cursor: pointer;
+}
