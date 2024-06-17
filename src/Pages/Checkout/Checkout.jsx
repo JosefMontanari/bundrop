@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./Checkout.css";
 import useLocalStorage from "../../hooks/useLocalStorage";
+import { useNavigate } from "react-router-dom";
 function Checkout() {
   const { getCartTotal } = useLocalStorage();
   const [paymentMethod, setPaymentMethod] = useState("card");
@@ -10,6 +11,7 @@ function Checkout() {
   const [city, setCity] = useState("");
   const [zipCode, setZipCode] = useState("");
   const [cartTotal, setCartTotal] = useState();
+  const navigate = useNavigate();
 
   useEffect(() => {
     setCartTotal(getCartTotal());
@@ -50,10 +52,12 @@ function Checkout() {
     };
     fetch("http://localhost:3002/orders", postOptions).then((res) => {
       if (res.ok) {
+        localStorage.removeItem("cart");
         alert(
           "Thanks, your order has been submitted! It will be with you in 5-10 minutes."
         );
-        window.location.reload();
+        // window.location.reload();
+        navigate("/");
       }
     });
   }

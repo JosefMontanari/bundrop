@@ -60,6 +60,16 @@
     position: relative;
   }
   .header-content p {
-    font-size: 2.5vw;
+    font-size: 1vw;
+  }
+}
+
+@media (max-height: 400px) {
+  .header {
+    max-height: 60vh;
+    position: relative;
+  }
+  .header-content p {
+    visibility: collapse;
   }
 }
